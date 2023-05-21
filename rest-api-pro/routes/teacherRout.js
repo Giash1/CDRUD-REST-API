@@ -1,13 +1,12 @@
-//
+
 const express = require('express');
 const router = express.Router();
+const teacherService = require('../services/teacherService');
 
-const { Teacher } = require('../models/teacher');
-
-// Get All teachers using router
+// Get all teachers
 router.get('/api/teachers', async (req, res) => {
   try {
-    const data = await Teacher.find({});
+    const data = await teacherService.getAllTeachers();
     res.send(data);
   } catch (err) {
     console.log(err);
@@ -15,10 +14,10 @@ router.get('/api/teachers', async (req, res) => {
   }
 });
 
-// Get Single Teacher
+// Get a single teacher
 router.get('/api/teacher/:id', async (req, res) => {
   try {
-    const data = await Teacher.findOne({ _id: req.params.id });
+    const data = await teacherService.getTeacherById(req.params.id);
     res.send(data);
   } catch (err) {
     console.log(err);
@@ -26,16 +25,16 @@ router.get('/api/teacher/:id', async (req, res) => {
   }
 });
 
-// Save Teacher
+// Add a new teacher
 router.post('/api/teacher/add', async (req, res) => {
   try {
-    const tea = new Teacher({
+    const teacherData = {
       name: req.body.name,
       email: req.body.email,
       age: req.body.age,
       subject: req.body.subject,
-    });
-    const data = await tea.save();
+    };
+    const data = await teacherService.addTeacher(teacherData);
     res.status(200).json({
       code: 200,
       message: 'Teacher Added Successfully',
@@ -47,20 +46,16 @@ router.post('/api/teacher/add', async (req, res) => {
   }
 });
 
-// Update Teacher
+// Update a teacher
 router.put('/api/teacher/update/:id', async (req, res) => {
   try {
-    const tea = {
+    const teacherData = {
       name: req.body.name,
       email: req.body.email,
       age: req.body.age,
       subject: req.body.subject,
     };
-    const data = await Teacher.findOneAndUpdate(
-      { _id: req.params.id },
-      { $set: tea },
-      { new: true }
-    );
+    const data = await teacherService.updateTeacher(req.params.id, teacherData);
     res.status(200).json({
       code: 200,
       message: 'Teacher Updated Successfully',
@@ -72,13 +67,13 @@ router.put('/api/teacher/update/:id', async (req, res) => {
   }
 });
 
-// Delete Teacher by id
+// Delete a teacher
 router.delete('/api/teacher/delete/:id', async (req, res) => {
   try {
-    const data = await Teacher.findOneAndRemove({ _id: req.params.id });
+    const data = await teacherService.deleteTeacher(req.params.id);
     res.status(200).json({
       code: 200,
-      message: 'Teacher deleted',
+      message: 'Teacher Deleted Successfully',
       deleteTeacher: data,
     });
   } catch (err) {
@@ -87,5 +82,4 @@ router.delete('/api/teacher/delete/:id', async (req, res) => {
   }
 });
 
-// exporting router
 module.exports = router;
