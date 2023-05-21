@@ -1,23 +1,17 @@
-let mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 
-
-// Students Schema
-const Student = mongoose.model('Student', {
-    // declaring the fields
-    name: {
-        type: String,
-        required:true
-    },
-    email: {
-        type:String,
-        required:true
-    },
-    age: {
-        type:String,
-        required:true
-    }
+const studentSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  age: Number,
 });
+
+// Add constructor to Student model
+const Student = mongoose.model('Student', studentSchema);
+
+module.exports = { Student };
+
 
 
 // exporting the modules

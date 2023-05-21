@@ -1,3 +1,4 @@
+//
 const express = require('express');
 const router = express.Router();
 
@@ -19,7 +20,6 @@ router.get('/api/teacher/:id', async (req, res) => {
   try {
     const data = await Teacher.findOne({ _id: req.params.id });
     res.send(data);
-    // if error
   } catch (err) {
     console.log(err);
     res.status(500).send('Server Error');
@@ -41,7 +41,6 @@ router.post('/api/teacher/add', async (req, res) => {
       message: 'Teacher Added Successfully',
       addTeacher: data,
     });
-    // if error
   } catch (err) {
     console.log(err);
     res.status(500).send('Server Error');
