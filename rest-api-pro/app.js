@@ -34,6 +34,7 @@ dotenv.config({path: './config/config.env'})
 connectDB();
 
 // defining the routes
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes/studentRout'));
+app.use('/', require('./routes/teacherRout'));
 
-app.listen(1000);
+app.listen(3001);

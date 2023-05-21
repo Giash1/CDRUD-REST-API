@@ -50,7 +50,7 @@ router.put('/api/student/update/:id', async (req, res) => {
   try {
     const stu = {
       name: req.body.name,
-      position: req.body.position,
+      email: req.body.email,
       age: req.body.age,
     };
     const data = await Student.findOneAndUpdate(
