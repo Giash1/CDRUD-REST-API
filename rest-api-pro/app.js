@@ -12,18 +12,18 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Middleware
-// app.use('/employees', () => {
+// app.use('/student', () => {
 //     console.log('Middleware Running');
 // });
 
 // Routes
 // app.get('/', (req, res) => {
-//     res.send('Hello World');
+//     res.send('Hi student');
 // });
 
 
-// app.get('/employees', (req, res) => {
-//     res.send('Employees');
+// app.get('/student', (req, res) => {
+//     res.send('Student');
 // });
 
 // coonecting DB with config
