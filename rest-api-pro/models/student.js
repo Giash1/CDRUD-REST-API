@@ -20,6 +20,9 @@ const studentSchema = new mongoose.Schema({
 
 
 const Student = mongoose.model('Student', studentSchema);
-// explanation is in the Readme.md file
+ // The Student model is created using the mongoose.model() method, which takes the model name ('Student') and
+// the schema definition (studentSchema) as parameters. When you call new Student(),
+// it internally uses the constructor provided by Mongoose to create a new instance of the Student model. -->
+
 // exporting the modules
 module.exports = {Student}
