@@ -1,5 +1,5 @@
 CRUD-RST-API PROJECT
-Using Node.js, express.js, nodemon, dotenv, router, services, constructor, javascript, mvc, config, database, postman, mongodb, mongo compass, git, gitbash, terminal, git hub and so on.
+Using Node.js, express.js, nodemon, dotenv, router, services, constructor, javascript, mvc, config, database, postman, mongodb, mongo compass,html, css, git, gitbash, terminal, git hub and so on.
 
 <!-- constructor -->
 <!-- // Constructors allow you to initialize the state of an object when it is created. -->
@@ -82,3 +82,9 @@ NoSQL: NoSQL databases are designed to scale horizontally by distributing data a
 <!-- postman -->
 
 <!-- Postman is widely used by developers, QA testers, and API providers to streamline the API development process, test APIs, and document API functionality. It helps simplify the testing and debugging of APIs by providing a centralized platform for managing API requests and automating tests. -->
+
+
+
+
+<!-- cors -->
+<!-- The CORS (Cross-Origin Resource Sharing) module is a middleware that allows you to enable Cross-Origin requests in your Express application. Cross-Origin requests occur when a web page hosted on one domain makes a request to a server hosted on a different domain. -->
