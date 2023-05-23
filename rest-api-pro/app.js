@@ -1,4 +1,11 @@
+// app.js
 const express = require('express');
+const app = express();
+
+app.use(express.static('frontend'));
+
+// Rest of your app.js code...
+
 // defining the body-parser
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -6,7 +13,6 @@ const dotenv = require('dotenv');
 
 // Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
 
-const app = express();
 // using body-parser in json formed
 app.use(bodyParser.json());
 app.use(cors());
